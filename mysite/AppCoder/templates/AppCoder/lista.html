@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Activos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-detail {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn-detail:hover {
+            background-color: #45a049;
+        }
+
+        .btn-delete {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background-color: #da190b;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'lista_activos' %}">Lista de Activos asignados</a>
+        <a href="{% url 'inicio' %}">Inicio</a>
+    </div>
+
+
+    <div class="container">
+        <h1>Lista de Activos asignados</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Descripción</th>
+                    <th>Fecha de Carga</th>
+                    <th>Usuario Asignado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for activo in activos %}
+                    <tr>
+                        <td>{{ activo.codigo }}</td>
+                        <td>{{ activo.descripcion }}</td>
+                        <td>{{ activo.fecha_de_carga }}</td>
+                        <td>{{ activo.usuario_asignado }}</td>
+                        <td>
+                            <a href="{% url 'detalle_activo' activo.pk %}" class="btn btn-detail">Ver Detalle</a>
+                            <a href="{% url 'eliminar_activo' activo.pk %}" class="btn btn-delete">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

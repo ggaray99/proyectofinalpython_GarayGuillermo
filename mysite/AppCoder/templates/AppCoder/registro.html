@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+        .register-container {
+            background: #2c2c2c;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        .register-container h1 {
+            margin-bottom: 0.5em;
+            color: #ffffff;
+            font-size: 2em;
+        }
+        .register-container h2 {
+            margin-bottom: 1em;
+            color: #ffffff;
+            font-size: 1.5em;
+        }
+        .register-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .register-container .form-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 1em;
+        }
+        .register-container label {
+            width: 30%;
+            text-align: left;
+        }
+        .register-container input {
+            width: 65%;
+            padding: 0.75em;
+            border: 1px solid #444444;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: #333333;
+            color: #ffffff;
+        }
+        .register-container input::placeholder {
+            color: #bbbbbb;
+        }
+        .register-container button {
+            padding: 0.75em;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            margin-top: 1em;
+        }
+        .register-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register-container">
+        <h1>AppCoder</h1>
+        <h2>Registro</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password1">Contraseña</label>
+                <input type="password" name="password1" id="password1" required>
+            </div>
+            <div class="form-group">
+                <label for="password2">Repetir la contraseña</label>
+                <input type="password" name="password2" id="password2" required>
+            </div>
+            <button type="submit">Registrarse</button>
+        </form>
+    </div>
+</body>
+
+</html>
