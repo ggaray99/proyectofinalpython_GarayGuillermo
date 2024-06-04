@@ -4,7 +4,11 @@
 
 ###### Objetivos generales
 
-Desarrollar una WEB Django con patrón MVT subida a Github.
+Desarrollar una WEB Django subida a Github.
+
+###### Video explicativo de la WEB
+https://youtu.be/kjlL66YwY1Q
+
 ###### Se debe entregar
 
 🕵 Cumplimiento de consigna:
@@ -31,34 +35,24 @@ Desarrollar una WEB Django con patrón MVT subida a Github.
 Se realizo el proyecto final en Visual Studio Code, utilizando Python como lenguaje principal y SQLLite como BBDD. También se utilizó DBBrowser para visualizar los datos cargados.
 
 Se tuvieron en cuenta los requisitos de la consigna, creando una WEB Django llamada AppCoder en este caso.
-La misma dentro cuenta con tres clases:
-```
-class ActivosAsignados(models.Model):
-    codigo = models.CharField(max_length=20)
-    descripcion = models.CharField(max_length=255)
-    fecha_de_carga = models.DateField()
-    usuario_asignado = models.CharField(max_length=100)
-```
-Esta primer clase almacenará a quien fue asignado un activo en particular.
 
-```
-	class Usuarios(models.Model):
-    nombre = models.CharField(max_length=20)
-    apellido = models.CharField(max_length=20)
-    puesto = models.CharField(max_length=40)
-    sucursal = models.CharField(max_length=40)
-```
-Aqui cargaremos los usuarios que podran tener asignado un activo.
+Para poder utilizar la web deberiamos tener instalado la version Python 3.12.3 o superior, ademas de las siguientes librerias
 
-```
-	class TipoActivos(models.Model):
-    codigo = models.CharField(max_length=20)
-    descripcion = models.CharField(max_length=255)
-```
-Y en esta ultima clase guardaremos los activos a asignar luego.
+Django==5.0.6
+pillow==10.3.0
 
-Creamos en views.py las funciones que utilizaremos tanto para poder hacer el POST en una tabla, como asi tambien las funciones para poder hacer la busqueda GET segun un codigo de un activo.
+Una vez tengamos esto instalado podremos poner a correr nuestra web desde VSC o nuestro terminal con el siguiente comando:
 
-En la pagina de inicio de la WEB nos encontraremos con una barra en la parte superior donde podremos acceder a cada uno de los formularios disponibles, tanto como para cargar datos o para realizar la busqueda.
+python manage.py runserver
+
+En la pagina de inicio de la WEB nos encontraremos con una barra en la parte superior donde podremos acceder a cada uno de los formularios disponibles, tanto como para cargar datos a un formulario, o bien, dentro de una pagina tendremos la posibilidad de listar los registros de un modelo para poder verlo mas en detalle, editarlo o eliminarlo si eso quisieramos. Ademas, contamos con la opcion de iniciar sesion o registrarnos.
+
+Para poder realizar las pruebas podrian utilizar el usuario de prueba que creé en el video explicativo o el usuario admin. Dejo las credenciales aqui abajo para la prueba:
+
+user: usuarioprueba
+pass: hola123456
+
+user: admin
+pass: admin
 
 Espero que la informacion les sea de ayuda!
